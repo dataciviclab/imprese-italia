@@ -52,7 +52,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_cancellazioni/2026/camcom_cancellazioni_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_cancellazioni/2026/camcom_cancellazioni_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -108,7 +108,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_iscrizioni/2026/camcom_iscrizioni_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_iscrizioni/2026/camcom_iscrizioni_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -163,7 +163,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_stock_italia/2026/camcom_stock_italia_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_italia/2026/camcom_stock_italia_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -238,7 +238,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_stock_italia_6cifre/2026/camcom_stock_italia_6cifre_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_italia_6cifre/2026/camcom_stock_italia_6cifre_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -296,7 +296,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_stock_marche/2026/camcom_stock_marche_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_marche/2026/camcom_stock_marche_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -373,7 +373,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_stock_marche_6cifre/2026/camcom_stock_marche_6cifre_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_marche_6cifre/2026/camcom_stock_marche_6cifre_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -430,7 +430,7 @@
       ],
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese_italia/camcom_variazione/2026/camcom_variazione_2026_clean.parquet",
+        "path": "gs://dataciviclab-clean/imprese-italia/camcom_variazione/2026/camcom_variazione_2026_clean.parquet",
         "multi_file": false
       },
       "stage": "incubating",
@@ -446,7 +446,7 @@
       "table": "mart_cancellazioni_provincia",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_cancellazioni/2026/mart_cancellazioni_provincia.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_cancellazioni/2026/mart_cancellazioni_provincia.parquet",
         "multi_file": false
       }
     },
@@ -456,7 +456,7 @@
       "table": "mart_iscrizioni_provincia",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_iscrizioni/2026/mart_iscrizioni_provincia.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_iscrizioni/2026/mart_iscrizioni_provincia.parquet",
         "multi_file": false
       }
     },
@@ -466,7 +466,7 @@
       "table": "mart_6cifre_provincia",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_italia_6cifre/2026/mart_6cifre_provincia.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia_6cifre/2026/mart_6cifre_provincia.parquet",
         "multi_file": false
       }
     },
@@ -476,7 +476,7 @@
       "table": "mart_6cifre_regione",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_italia_6cifre/2026/mart_6cifre_regione.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia_6cifre/2026/mart_6cifre_regione.parquet",
         "multi_file": false
       }
     },
@@ -486,7 +486,7 @@
       "table": "mart_provincia_ateco",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_italia/2026/mart_provincia_ateco.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia/2026/mart_provincia_ateco.parquet",
         "multi_file": false
       }
     },
@@ -496,7 +496,7 @@
       "table": "mart_6cifre_comune",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_marche_6cifre/2026/mart_6cifre_comune.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_6cifre_comune.parquet",
         "multi_file": false
       }
     },
@@ -506,7 +506,7 @@
       "table": "mart_6cifre_provincia",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_marche_6cifre/2026/mart_6cifre_provincia.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_6cifre_provincia.parquet",
         "multi_file": false
       }
     },
@@ -516,7 +516,7 @@
       "table": "mart_comune_ateco",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_stock_marche/2026/mart_comune_ateco.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche/2026/mart_comune_ateco.parquet",
         "multi_file": false
       }
     },
@@ -526,7 +526,7 @@
       "table": "mart_variazione_provincia",
       "location": {
         "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese_italia/camcom_variazione/2026/mart_variazione_provincia.parquet",
+        "path": "gs://dataciviclab-mart/imprese-italia/camcom_variazione/2026/mart_variazione_provincia.parquet",
         "multi_file": false
       }
     }
@@ -540,7 +540,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094644Z_8959e85c",
+        "run_id": "20260920T105042Z_d8b4f342",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -558,9 +558,9 @@
           "clean": 52384,
           "mart": 4833
         },
-        "started_at": "2026-09-20T09:46:44.401348+00:00",
-        "finished_at": "2026-09-20T09:46:47.655009+00:00",
-        "duration_seconds": 3.254
+        "started_at": "2026-09-20T10:50:42.584781+00:00",
+        "finished_at": "2026-09-20T10:50:45.138049+00:00",
+        "duration_seconds": 2.553
       }
     },
     {
@@ -571,7 +571,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094647Z_fa414d9d",
+        "run_id": "20260920T105045Z_5368efc7",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -589,9 +589,9 @@
           "clean": 48206,
           "mart": 4765
         },
-        "started_at": "2026-09-20T09:46:47.791435+00:00",
-        "finished_at": "2026-09-20T09:46:49.894670+00:00",
-        "duration_seconds": 2.103
+        "started_at": "2026-09-20T10:50:45.193604+00:00",
+        "finished_at": "2026-09-20T10:50:46.875018+00:00",
+        "duration_seconds": 1.681
       }
     },
     {
@@ -602,7 +602,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094650Z_00619c50",
+        "run_id": "20260920T105046Z_15853c2a",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -620,9 +620,9 @@
           "clean": 72176,
           "mart": 8797
         },
-        "started_at": "2026-09-20T09:46:50.011276+00:00",
-        "finished_at": "2026-09-20T09:46:52.530772+00:00",
-        "duration_seconds": 2.519
+        "started_at": "2026-09-20T10:50:46.929949+00:00",
+        "finished_at": "2026-09-20T10:50:48.363786+00:00",
+        "duration_seconds": 1.434
       }
     },
     {
@@ -633,7 +633,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094652Z_b38809e3",
+        "run_id": "20260920T105048Z_4a308983",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -651,9 +651,9 @@
           "clean": 274690,
           "mart": 9455
         },
-        "started_at": "2026-09-20T09:46:52.666895+00:00",
-        "finished_at": "2026-09-20T09:46:57.699843+00:00",
-        "duration_seconds": 5.033
+        "started_at": "2026-09-20T10:50:48.419726+00:00",
+        "finished_at": "2026-09-20T10:50:51.081642+00:00",
+        "duration_seconds": 2.662
       }
     },
     {
@@ -664,7 +664,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094657Z_e2ae516a",
+        "run_id": "20260920T105051Z_28362cbb",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -682,9 +682,9 @@
           "clean": 49298,
           "mart": 10341
         },
-        "started_at": "2026-09-20T09:46:57.896564+00:00",
-        "finished_at": "2026-09-20T09:47:00.817121+00:00",
-        "duration_seconds": 2.921
+        "started_at": "2026-09-20T10:50:51.146234+00:00",
+        "finished_at": "2026-09-20T10:50:52.980182+00:00",
+        "duration_seconds": 1.834
       }
     },
     {
@@ -695,7 +695,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094700Z_aaaed972",
+        "run_id": "20260920T105053Z_102c9f78",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -713,9 +713,9 @@
           "clean": 117492,
           "mart": 10817
         },
-        "started_at": "2026-09-20T09:47:00.961903+00:00",
-        "finished_at": "2026-09-20T09:47:03.866253+00:00",
-        "duration_seconds": 2.904
+        "started_at": "2026-09-20T10:50:53.036133+00:00",
+        "finished_at": "2026-09-20T10:50:55.146965+00:00",
+        "duration_seconds": 2.111
       }
     },
     {
@@ -726,7 +726,7 @@
       "detail": "anno 2026 — mart: si",
       "action": "",
       "run": {
-        "run_id": "20260920T094704Z_4888cf50",
+        "run_id": "20260920T105055Z_5af17422",
         "year": 2026,
         "status": "SUCCESS",
         "quality_score": {
@@ -744,9 +744,9 @@
           "clean": 36778,
           "mart": 9975
         },
-        "started_at": "2026-09-20T09:47:04.034882+00:00",
-        "finished_at": "2026-09-20T09:47:06.174191+00:00",
-        "duration_seconds": 2.139
+        "started_at": "2026-09-20T10:50:55.212820+00:00",
+        "finished_at": "2026-09-20T10:50:56.618433+00:00",
+        "duration_seconds": 1.406
       }
     }
   ],
