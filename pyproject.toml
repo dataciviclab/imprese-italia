@@ -1,0 +1,14 @@
+[project]
+name = "imprese-italia"
+version = "0.1.0"
+description = "Imprese Italia — demografia d'impresa italiana da Camera di Commercio delle Marche"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["ruff", "pytest"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

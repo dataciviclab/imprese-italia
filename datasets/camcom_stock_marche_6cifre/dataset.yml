@@ -1,0 +1,56 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "camcom_stock_marche_6cifre"
+  source_id: "camcom-marche"
+  tags: [imprese, economia, ateco, ateco-6cifre, camcom, micro, marche, comunale]
+  category: economia
+  years: [2026]
+  time_coverage:
+    start_year: 2026
+    end_year: 2026
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "download"
+      type: "script"
+      args:
+        command: "python3 camcom_download.py raw_input.csv"
+        output: "raw_input.csv"
+        filename: "raw_input.csv"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: auto
+    mode: latest
+    delim: ";"
+    encoding: utf-8
+    header: true
+  required_columns:
+    - provincia
+    - comune
+    - settore
+    - imprese
+  validate:
+    min_rows: 1000
+    not_null: [provincia, settore]
+
+mart:
+  tables:
+    - name: "mart_6cifre_provincia"
+      sql: "sql/mart_6cifre_provincia.sql"
+    - name: "mart_6cifre_comune"
+      sql: "sql/mart_6cifre_comune.sql"
+  required_tables: ["mart_6cifre_provincia", "mart_6cifre_comune"]
+  validate:
+    table_rules:
+      mart_6cifre_provincia:
+        required_columns: [provincia, settore, imprese]
+        min_rows: 100
+      mart_6cifre_comune:
+        required_columns: [comune, settore, imprese]
+        min_rows: 100

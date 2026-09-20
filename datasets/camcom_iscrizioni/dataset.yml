@@ -1,0 +1,51 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "camcom_iscrizioni"
+  source_id: "camcom-marche"
+  tags: [imprese, economia, ateco, iscrizioni, camcom, nuove-imprese]
+  category: economia
+  years: [2026]
+  time_coverage:
+    start_year: 2025
+    end_year: 2026
+
+raw:
+  output_policy: overwrite
+  sources:
+    - name: "download"
+      type: "script"
+      args:
+        command: "python3 camcom_download.py raw_input.csv"
+        output: "raw_input.csv"
+        filename: "raw_input.csv"
+      primary: true
+
+clean:
+  sql: "sql/clean.sql"
+  read:
+    source: auto
+    mode: latest
+    delim: ","
+    encoding: utf-8
+    header: true
+  required_columns:
+    - territorio
+    - ateco
+    - data
+    - nuove_imprese
+  validate:
+    min_rows: 100
+    not_null: [territorio, ateco, data]
+
+mart:
+  tables:
+    - name: "mart_iscrizioni_provincia"
+      sql: "sql/mart_iscrizioni_provincia.sql"
+  required_tables: ["mart_iscrizioni_provincia"]
+  validate:
+    table_rules:
+      mart_iscrizioni_provincia:
+        required_columns: [territorio, ateco, data, nuove_imprese]
+        min_rows: 50
