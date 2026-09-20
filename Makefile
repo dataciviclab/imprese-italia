@@ -26,5 +26,12 @@ test:
 clean:
 	rm -rf out/data/_runs out/data/probe out/data/raw out/data/clean out/data/mart .tmp/ batch.txt
 
+.PHONY: registry registry-write
+registry:
+	$(TOOLKIT) registry build --prefix imprese-italia
+
+registry-write:
+	$(TOOLKIT) registry build --prefix imprese-italia --write
+
 help:
 	@grep -E '^[a-zA-Z_-]+:' Makefile | sort
