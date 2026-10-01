@@ -3,11 +3,12 @@ TOOLKIT = toolkit
 export TOOLKIT_ALLOW_SCRIPT_SOURCE = 1
 
 DATASETS := $(shell find datasets -name dataset.yml 2>/dev/null | sort)
+COMPOSES := $(shell find compose -name dataset.yml 2>/dev/null | sort)
 
 .PHONY: check run run-all clean test help
 
 check:
-	@for f in $(DATASETS); do \
+	@for f in $(DATASETS) $(COMPOSES); do \
 		echo "→ $$f"; \
 		$(TOOLKIT) run preflight --config "$$f" > /dev/null 2>&1 || exit 1; \
 	done
@@ -17,14 +18,15 @@ run:
 	$(TOOLKIT) run
 
 run-all:
-	@find datasets -name dataset.yml | sort > batch.txt; \
+	@find datasets -name dataset.yml 2>/dev/null | sort > batch.txt; \
+	find compose -name dataset.yml 2>/dev/null | sort >> batch.txt; \
 	$(TOOLKIT) run --batch batch.txt
 
 test:
 	python3 -m pytest tests/ -v
 
 clean:
-	rm -rf out/data/_runs out/data/probe out/data/raw out/data/clean out/data/mart .tmp/ batch.txt
+	rm -rf out/data/_runs out/data/probe out/data/raw out/data/clean out/data/mart out/data/support .tmp/ batch.txt
 
 .PHONY: registry registry-write
 registry:

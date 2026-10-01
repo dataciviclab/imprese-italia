@@ -19,13 +19,29 @@ Il sistema copre il ciclo di vita completo delle imprese: nascita (iscrizioni), 
 
 | Dataset | Cosa | Righe | Copertura |
 |---------|------|-------|-----------|
-| `camcom_stock_italia` | Stock imprese per provincia × ATECO 2 | 51K | Italia, mensile |
-| `camcom_stock_marche` | Stock imprese per comune × ATECO 2 | 27K | Marche, mensile |
-| `camcom_variazione` | Variazione % YoY per provincia × ATECO | 5K | Italia, mensile |
-| `camcom_iscrizioni` | Nuove iscrizioni al Registro | 5K | Italia, mensile |
-| `camcom_cancellazioni` | Cessazioni dal Registro | 5K | Italia, mensile |
-| `camcom_stock_italia_6cifre` | Stock per provincia × ATECO 6 cifre | 112K | Italia, snapshot |
-| `camcom_stock_marche_6cifre` | Stock per comune × ATECO 6 cifre | 34K | Marche, snapshot |
+| `camcom_stock_italia` | Stock imprese per provincia × ATECO 2 + serie Italia/territori | 51K | Italia, mensile |
+| `camcom_stock_marche` | Stock imprese per comune × ATECO 2 + serie comuni | 92K | Marche, mensile |
+| `camcom_variazione` | Variazione % YoY per provincia × ATECO + serie Italia | 15K | Italia, mensile |
+| `camcom_iscrizioni` | Nuove iscrizioni al Registro + serie Italia | 51K | Italia, mensile |
+| `camcom_cancellazioni` | Cessazioni dal Registro + serie Italia | 51K | Italia, mensile |
+| `camcom_stock_italia_6cifre` | Stock per provincia × ATECO 6 cifre + gerarchia piena | 112K | Italia, snapshot |
+| `camcom_stock_marche_6cifre` | Stock per comune × ATECO 6 cifre + gerarchia piena | 34K | Marche, snapshot |
+| `demografia_imprese` (compose) | Bilancio mensile, composizione, specializzazione Marche, codici anomali | 49K | Italia + Marche |
+
+### Mart analitici (nuovi)
+
+| Mart | Dataset | Cosa |
+|------|---------|------|
+| `mart_serie_italia_ateco` | stock / iscrizioni / cancellazioni / variazione | Serie mensile Italia × ATECO (share % dove applicabile) |
+| `mart_serie_territorio` | stock_italia | Serie mensile per territorio con `territorio_tipo` (ITALIA/REGIONE/PROVINCIA) |
+| `mart_serie_comune` | stock_marche | Serie mensile comuni Marche (TOTAL) |
+| `mart_gerarchia` | stock_*_6cifre | Gerarchia ATECO completa (divisione/classe/sottocategoria) |
+| `mart_bilancio_mensile` | demografia_imprese | stock + iscrizioni + cessazioni + netto per ATECO × mese |
+| `mart_composizione_ateco` | demografia_imprese | Share % stock per ATECO × territorio × mese |
+| `mart_specializzazione` | demografia_imprese | RCA Marche vs Italia per ATECO (ultimo mese) |
+| `mart_codici_anomali` | demografia_imprese | Flag codici rari X/V/U/P con variazione YoY |
+
+Codelist etichette ATECO: `compose/demografia-imprese/codelists/ateco_2.csv` (support `file`).
 
 ## Come accedere
 

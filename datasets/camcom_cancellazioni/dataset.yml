@@ -43,9 +43,16 @@ mart:
   tables:
     - name: "mart_cancellazioni_provincia"
       sql: "sql/mart_cancellazioni_provincia.sql"
-  required_tables: ["mart_cancellazioni_provincia"]
+    - name: "mart_serie_italia_ateco"
+      sql: "sql/mart_serie_italia_ateco.sql"
+  required_tables:
+    - "mart_cancellazioni_provincia"
+    - "mart_serie_italia_ateco"
   validate:
     table_rules:
       mart_cancellazioni_provincia:
         required_columns: [territorio, ateco, data, cessazioni]
         min_rows: 50
+      mart_serie_italia_ateco:
+        required_columns: [data, ateco, cessazioni]
+        min_rows: 100

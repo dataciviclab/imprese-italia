@@ -43,9 +43,22 @@ mart:
   tables:
     - name: "mart_provincia_ateco"
       sql: "sql/mart_provincia_ateco.sql"
-  required_tables: ["mart_provincia_ateco"]
+    - name: "mart_serie_italia_ateco"
+      sql: "sql/mart_serie_italia_ateco.sql"
+    - name: "mart_serie_territorio"
+      sql: "sql/mart_serie_territorio.sql"
+  required_tables:
+    - "mart_provincia_ateco"
+    - "mart_serie_italia_ateco"
+    - "mart_serie_territorio"
   validate:
     table_rules:
       mart_provincia_ateco:
         required_columns: [territorio, ateco, data, imprese]
         min_rows: 50
+      mart_serie_italia_ateco:
+        required_columns: [data, ateco, imprese, totale, share_pct]
+        min_rows: 100
+      mart_serie_territorio:
+        required_columns: [data, territorio, territorio_tipo, imprese]
+        min_rows: 100

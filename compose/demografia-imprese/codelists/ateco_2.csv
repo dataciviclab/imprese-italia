@@ -1,0 +1,25 @@
+code,label
+A,Agricoltura, silvicoltura e pesca
+B,Estrazione di minerale da miniere e cave
+C,Industria manifatturiera
+D,Fornitura di energia elettrica, gas, vapore e aria condizionata
+E,Fornitura di acqua, raccolta e trattamento delle acque, rifiuti e disidratazione
+F,Costruzioni
+G,Commercio all'ingrosso e al dettaglio; riparazione di autoveicoli e motocicli
+H,Trasporto e magazzinaggio
+I,Attività alberghiere e di ristorazione
+J,Informazione e comunicazione
+K,Attività di intermediazione monetaria e finanziaria
+L,Attività immobiliari
+M,Attività professionali, scientifiche e tecniche
+N,Attività amministrative e servizi di supporto
+O,Amministrazione pubblica e difesa; assicurazione sociale obbligatoria
+P,Istruzione
+Q,Sanità e attività sociali
+R,Attività artistiche, sportive e di intrattenimento
+S,Altre attività di servizi
+T,Attività delle famiglie come datori di lavoro
+U,Attività delle organizzazioni e organismi extraterritoriali
+V,Attività non allocate altrove (codice fonte)
+X,Non classificabili / non altrove classificati (codice fonte)
+TOTAL,Totale generale
