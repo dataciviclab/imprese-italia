@@ -12,7 +12,11 @@ import pandas as pd
 import streamlit as st
 from lab_connectors.duckdb.queries import (
     detect_local_root,
+)
+from lab_connectors.duckdb.queries import (
     load_mart_table as _load_mart_table,
+)
+from lab_connectors.duckdb.queries import (
     query_clean as _query_clean,
 )
 from lab_connectors.formatters import fmt_num, fmt_pct

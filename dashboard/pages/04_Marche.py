@@ -3,7 +3,6 @@
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-
 from sources import (
     ateco_label,
     comune_label,

@@ -35,7 +35,5 @@ pages = {
 
 pg = st.navigation(pages, position="sidebar")
 
-st.sidebar.caption(
-    "Fonte: opendata.marche.camcom.it — CCIAA Marche su dati InfoCamere (CC BY 4.0)"
-)
+st.sidebar.caption("Fonte: opendata.marche.camcom.it — CCIAA Marche su dati InfoCamere (CC BY 4.0)")
 pg.run()

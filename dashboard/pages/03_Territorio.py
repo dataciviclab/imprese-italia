@@ -3,8 +3,7 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-
-from sources import fmt_num, load_serie_territorio, province_latest, regioni_latest
+from sources import fmt_num, load_serie_territorio
 
 st.title("🗺️ Territorio")
 st.markdown("Stock imprese per provincia e regione. La serie storica è in `mart_serie_territorio`.")

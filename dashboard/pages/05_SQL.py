@@ -1,7 +1,5 @@
 """Query SQL — Interroga clean e mart del repo."""
 
-from pathlib import Path
-
 from lab_connectors.duckdb.sql_page import render_sql_query
 from sources import PREFIX, load_registry_obj
 

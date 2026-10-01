@@ -4,7 +4,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
-
 from sources import (
     SPECIAL_CODES,
     ateco_label,
@@ -15,7 +14,9 @@ from sources import (
 )
 
 st.title("🏭 Settori")
-st.markdown("Composizione stock, bilancio demografico e specializzazione territoriale per sezione ATECO 2.")
+st.markdown(
+    "Composizione stock, bilancio demografico e specializzazione territoriale per sezione ATECO 2."
+)
 
 comp_all = load_composizione()
 bil = load_bilancio()
@@ -117,8 +118,16 @@ else:
     st.plotly_chart(fig, width="stretch")
 
     st.dataframe(
-        s[["settore", "stock_marche", "stock_italia", "share_marche_pct", "share_italia_pct", "rca"]]
-        .rename(
+        s[
+            [
+                "settore",
+                "stock_marche",
+                "stock_italia",
+                "share_marche_pct",
+                "share_italia_pct",
+                "rca",
+            ]
+        ].rename(
             columns={
                 "settore": "Settore",
                 "stock_marche": "Stock Marche",

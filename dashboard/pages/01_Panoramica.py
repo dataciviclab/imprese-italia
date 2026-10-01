@@ -3,14 +3,12 @@
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
-
 from sources import (
     ateco_label,
     bilancio_italia_latest,
     composizione_italia_latest,
     fmt_delta_pct,
     fmt_num,
-    fmt_pct,
     italia_stock_trend,
     load_bilancio,
     load_serie_stock_italia,
