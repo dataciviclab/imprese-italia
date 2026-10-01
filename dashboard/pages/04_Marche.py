@@ -16,7 +16,7 @@ from sources import (
 st.title("📍 Marche")
 st.markdown(
     "Demografia d'impresa nei 227 comuni delle Marche: ranking, trend e "
-    "specializzazione settoriale vs media nazionale."
+    "specializzazione settoriale vs media nazionale.",
 )
 
 comuni_df = load_serie_comune()
@@ -42,19 +42,19 @@ fig = go.Figure(
         marker_color="#2563eb",
         text=[fmt_num(v) for v in top["imprese"]],
         textposition="outside",
-    )
+    ),
 )
 fig.update_layout(
     height=420,
     margin={"t": 10, "b": 20},
     xaxis_title="Imprese attive",
-    yaxis=dict(autorange="reversed"),
+    yaxis={"autorange": "reversed"},
 )
 st.plotly_chart(fig, width="stretch")
 
 st.dataframe(
     top[["comune", "territorio", "imprese"]].rename(
-        columns={"comune": "Comune", "territorio": "Codice", "imprese": "Imprese"}
+        columns={"comune": "Comune", "territorio": "Codice", "imprese": "Imprese"},
     ),
     width="stretch",
     hide_index=True,
@@ -89,8 +89,8 @@ else:
             y=serie_c["imprese"],
             mode="lines+markers",
             name="Imprese",
-            line=dict(width=3, color="#2563eb"),
-        )
+            line={"width": 3, "color": "#2563eb"},
+        ),
     )
     fig.update_layout(
         title=f"{comune_sel} — serie stock (ATECO TOTAL)",
@@ -128,7 +128,7 @@ else:
                 "share_marche_pct": "Share Mar %",
                 "share_italia_pct": "Share Ita %",
                 "rca": "RCA",
-            }
+            },
         ),
         width="stretch",
         hide_index=True,
@@ -142,13 +142,13 @@ else:
             marker_color=["#059669" if v >= 1 else "#d97706" for v in s["rca"]],
             text=[f"{v:.2f}" for v in s["rca"]],
             textposition="outside",
-        )
+        ),
     )
     fig.add_vline(x=1.0, line_dash="dash", line_color="#6b7280")
     fig.update_layout(
         height=max(360, len(s) * 28),
         margin={"t": 10, "b": 20},
         xaxis_title="RCA",
-        yaxis=dict(autorange="reversed"),
+        yaxis={"autorange": "reversed"},
     )
     st.plotly_chart(fig, width="stretch")

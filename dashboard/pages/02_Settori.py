@@ -15,7 +15,7 @@ from sources import (
 
 st.title("🏭 Settori")
 st.markdown(
-    "Composizione stock, bilancio demografico e specializzazione territoriale per sezione ATECO 2."
+    "Composizione stock, bilancio demografico e specializzazione territoriale per sezione ATECO 2.",
 )
 
 comp_all = load_composizione()
@@ -56,7 +56,7 @@ col_t, col_b = st.columns(2)
 with col_t:
     st.dataframe(
         comp[["settore", "imprese", "share_pct"]].rename(
-            columns={"settore": "Settore", "imprese": "Imprese", "share_pct": "Share %"}
+            columns={"settore": "Settore", "imprese": "Imprese", "share_pct": "Share %"},
         ),
         width="stretch",
         hide_index=True,
@@ -79,7 +79,7 @@ with col_b:
             marker_color=["#059669" if v >= 0 else "#d97706" for v in bal["netto"]],
             text=bal["netto_fmt"],
             textposition="outside",
-        )
+        ),
     )
     fig.update_layout(height=400, margin={"t": 10, "b": 20}, xaxis_title="Netto")
     st.plotly_chart(fig, width="stretch")
@@ -106,14 +106,14 @@ else:
             marker_color=colors,
             text=[f"{v:.2f}" for v in s["rca"]],
             textposition="outside",
-        )
+        ),
     )
     fig.add_vline(x=1.0, line_dash="dash", line_color="#6b7280")
     fig.update_layout(
         height=max(360, len(s) * 28),
         margin={"t": 10, "b": 20},
         xaxis_title="RCA",
-        yaxis=dict(autorange="reversed"),
+        yaxis={"autorange": "reversed"},
     )
     st.plotly_chart(fig, width="stretch")
 
@@ -135,7 +135,7 @@ else:
                 "share_marche_pct": "Share Marche %",
                 "share_italia_pct": "Share Italia %",
                 "rca": "RCA",
-            }
+            },
         ),
         width="stretch",
         hide_index=True,

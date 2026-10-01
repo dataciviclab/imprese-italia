@@ -17,7 +17,7 @@ from sources import (
 st.title("🇮🇹 Imprese Italia")
 st.caption(
     "Quante imprese nascono, crescono e muoiono in Italia. "
-    "Serie mensili da Registro delle Imprese (InfoCamere / CCIAA Marche)."
+    "Serie mensili da Registro delle Imprese (InfoCamere / CCIAA Marche).",
 )
 
 # ── KPI ─────────────────────────────────────────────────────────────────────
@@ -59,7 +59,7 @@ with k4:
 
 st.caption(
     f"Riferimento: {latest['data'].date()} · "
-    "Caveat: le cancellazioni di dicembre/gennaio riflettono anche stocktaking di registro."
+    "Caveat: le cancellazioni di dicembre/gennaio riflettono anche stocktaking di registro.",
 )
 
 # ── Trend stock Italia ──────────────────────────────────────────────────────
@@ -71,9 +71,9 @@ fig.add_trace(
         y=trend["imprese"],
         mode="lines+markers",
         name="Imprese attive",
-        line=dict(width=3, color="#2563eb"),
+        line={"width": 3, "color": "#2563eb"},
         hovertemplate="%{x|%b %Y}<br>%{y:,.0f} imprese<extra></extra>",
-    )
+    ),
 )
 fig.update_layout(
     height=380,
@@ -104,13 +104,13 @@ with col_l:
                 text=[fmt_num(v) for v in comp["imprese"]],
                 textposition="outside",
                 hovertemplate="%{y}<br>%{x:,.0f} imprese<extra></extra>",
-            )
+            ),
         )
         fig.update_layout(
             height=420,
             margin={"t": 10, "b": 10, "l": 10, "r": 10},
             xaxis_title="Imprese",
-            yaxis=dict(autorange="reversed"),
+            yaxis={"autorange": "reversed"},
         )
         st.plotly_chart(fig, width="stretch")
 
@@ -132,13 +132,13 @@ with col_r:
                 text=[fmt_num(v) for v in bal["netto"]],
                 textposition="outside",
                 hovertemplate="%{y}<br>netto %{x:,.0f}<extra></extra>",
-            )
+            ),
         )
         fig.update_layout(
             height=420,
             margin={"t": 10, "b": 10, "l": 10, "r": 10},
             xaxis_title="Iscrizioni − Cancellazioni",
-            yaxis=dict(autorange="reversed"),
+            yaxis={"autorange": "reversed"},
         )
         st.plotly_chart(fig, width="stretch")
 
@@ -164,7 +164,7 @@ else:
                 "settore": ateco_label(code),
                 "yoy_pct": (c / p - 1) * 100,
                 "imprese": c,
-            }
+            },
         )
     if rows:
         yoy = pd.DataFrame(rows).sort_values("yoy_pct")
@@ -180,7 +180,7 @@ else:
                     marker_color="#059669",
                     text=[f"{v:+.1f}%" for v in top["yoy_pct"]],
                     textposition="outside",
-                )
+                ),
             )
             fig.update_layout(title="In crescita", height=360, margin={"t": 40, "b": 20})
             st.plotly_chart(fig, width="stretch")
@@ -193,12 +193,12 @@ else:
                     marker_color="#d97706",
                     text=[f"{v:+.1f}%" for v in bottom["yoy_pct"]],
                     textposition="outside",
-                )
+                ),
             )
             fig.update_layout(title="In contrazione", height=360, margin={"t": 40, "b": 20})
             st.plotly_chart(fig, width="stretch")
 
 st.caption(
     "Codici rari X/V/U/P esclusi dai ranking. "
-    "Dettaglio in `mart_codici_anomali` (compose demografia_imprese)."
+    "Dettaglio in `mart_codici_anomali` (compose demografia_imprese).",
 )

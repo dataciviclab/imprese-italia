@@ -58,9 +58,9 @@ fig = px.choropleth(
 )
 fig.update_geos(fitbounds="locations", visible=False, bgcolor="rgba(0,0,0,0)")
 fig.update_layout(
-    margin=dict(l=0, r=0, t=0, b=0),
+    margin={"l": 0, "r": 0, "t": 0, "b": 0},
     height=480,
-    coloraxis_colorbar=dict(title="Imprese"),
+    coloraxis_colorbar={"title": "Imprese"},
     paper_bgcolor="rgba(0,0,0,0)",
 )
 st.plotly_chart(fig, width="stretch")
@@ -73,7 +73,7 @@ with col_p:
     top_p = prov.sort_values("imprese", ascending=False).head(15)
     st.dataframe(
         top_p[["territorio", "imprese"]].rename(
-            columns={"territorio": "Provincia", "imprese": "Imprese"}
+            columns={"territorio": "Provincia", "imprese": "Imprese"},
         ),
         width="stretch",
         hide_index=True,
@@ -84,7 +84,7 @@ with col_r:
     st.subheader("Regioni")
     st.dataframe(
         reg.sort_values("imprese", ascending=False)[["territorio", "imprese"]].rename(
-            columns={"territorio": "Regione", "imprese": "Imprese"}
+            columns={"territorio": "Regione", "imprese": "Imprese"},
         ),
         width="stretch",
         hide_index=True,
