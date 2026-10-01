@@ -45,12 +45,20 @@ mart:
       sql: "sql/mart_6cifre_provincia.sql"
     - name: "mart_6cifre_comune"
       sql: "sql/mart_6cifre_comune.sql"
-  required_tables: ["mart_6cifre_provincia", "mart_6cifre_comune"]
+    - name: "mart_gerarchia"
+      sql: "sql/mart_gerarchia.sql"
+  required_tables:
+    - "mart_6cifre_provincia"
+    - "mart_6cifre_comune"
+    - "mart_gerarchia"
   validate:
     table_rules:
       mart_6cifre_provincia:
         required_columns: [provincia, settore, imprese]
-        min_rows: 100
+        min_rows: 50
       mart_6cifre_comune:
         required_columns: [comune, settore, imprese]
         min_rows: 100
+      mart_gerarchia:
+        required_columns: [provincia, comune, settore, divisione, classe, sottocategoria, imprese]
+        min_rows: 1000

@@ -4,7 +4,8 @@
 SELECT
     normalize_string(territorio) AS territorio,
     normalize_string(ateco) AS ateco,
-    data,
+    -- data raw è 'YYYY-MM': allinea a fine mese come stock (DATE)
+    CAST((CAST(data || '-01' AS DATE) + INTERVAL 1 MONTH - INTERVAL 1 DAY) AS DATE) AS data,
     CAST(cessazioni AS BIGINT) AS cessazioni
 FROM raw_input
 WHERE cessazioni IS NOT NULL

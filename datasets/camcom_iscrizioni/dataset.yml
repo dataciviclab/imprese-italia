@@ -43,9 +43,16 @@ mart:
   tables:
     - name: "mart_iscrizioni_provincia"
       sql: "sql/mart_iscrizioni_provincia.sql"
-  required_tables: ["mart_iscrizioni_provincia"]
+    - name: "mart_serie_italia_ateco"
+      sql: "sql/mart_serie_italia_ateco.sql"
+  required_tables:
+    - "mart_iscrizioni_provincia"
+    - "mart_serie_italia_ateco"
   validate:
     table_rules:
       mart_iscrizioni_provincia:
         required_columns: [territorio, ateco, data, nuove_imprese]
         min_rows: 50
+      mart_serie_italia_ateco:
+        required_columns: [data, ateco, nuove_imprese]
+        min_rows: 100

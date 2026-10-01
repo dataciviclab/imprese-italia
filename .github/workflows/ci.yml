@@ -23,5 +23,5 @@ jobs:
   validate-config:
     uses: dataciviclab/.github/.github/workflows/dataset-config-check-reusable.yml@main
     with:
-      globs: "datasets"
+      globs: "datasets compose"
       years: "from-config"

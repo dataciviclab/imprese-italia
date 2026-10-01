@@ -1,0 +1,68 @@
+root: "../../out"
+schema_version: 1
+
+dataset:
+  name: "demografia_imprese"
+  source_id: "dataciviclab_composite"
+  tags: [imprese, economia, ateco, demografia-impresa, compose, bilancio, specializzazione]
+  category: economia
+  description: "Demografia d'impresa: bilancio mensile, composizione settoriale e specializzazione Marche vs Italia"
+  years: [2026]
+
+support:
+  - name: stock_italia
+    type: dataset
+    config: "../../datasets/camcom_stock_italia/dataset.yml"
+    years: [2026]
+  - name: stock_marche
+    type: dataset
+    config: "../../datasets/camcom_stock_marche/dataset.yml"
+    years: [2026]
+  - name: iscrizioni
+    type: dataset
+    config: "../../datasets/camcom_iscrizioni/dataset.yml"
+    years: [2026]
+  - name: cancellazioni
+    type: dataset
+    config: "../../datasets/camcom_cancellazioni/dataset.yml"
+    years: [2026]
+  - name: variazione
+    type: dataset
+    config: "../../datasets/camcom_variazione/dataset.yml"
+    years: [2026]
+  - name: ateco_2
+    type: file
+    path: "codelists/ateco_2.csv"
+
+mart:
+  tables:
+    - name: "mart_bilancio_mensile"
+      sql: "sql/mart_bilancio_mensile.sql"
+    - name: "mart_composizione_ateco"
+      sql: "sql/mart_composizione_ateco.sql"
+    - name: "mart_specializzazione"
+      sql: "sql/mart_specializzazione.sql"
+    - name: "mart_codici_anomali"
+      sql: "sql/mart_codici_anomali.sql"
+  required_tables:
+    - "mart_bilancio_mensile"
+    - "mart_composizione_ateco"
+    - "mart_specializzazione"
+    - "mart_codici_anomali"
+  validate:
+    table_rules:
+      mart_bilancio_mensile:
+        required_columns: [data, ateco, stock, iscrizioni, cessazioni, netto, netto_pct_stock]
+        min_rows: 100
+      mart_composizione_ateco:
+        required_columns: [data, territorio, territorio_tipo, ateco, imprese, totale, share_pct]
+        min_rows: 100
+      mart_specializzazione:
+        required_columns: [data, ateco, stock_marche, stock_italia, share_marche_pct, share_italia_pct, rca]
+        min_rows: 10
+      mart_codici_anomali:
+        required_columns: [data, ateco, stock, variazione_pct, classe_ateco]
+        min_rows: 10
+
+validation:
+  fail_on_error: true

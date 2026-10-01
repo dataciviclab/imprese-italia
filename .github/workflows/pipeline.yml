@@ -5,6 +5,8 @@ on:
     types: [closed]
     paths:
       - "datasets/**"
+      - "compose/**"
+      - ".github/workflows/pipeline.yml"
   schedule:
     - cron: "0 6 1 * *"
   workflow_dispatch:
@@ -16,6 +18,7 @@ jobs:
     with:
       repo-slug: "imprese-italia"
       run-command: "make run-all"
+      verify-command: "make test"
     permissions:
       contents: write
       pull-requests: write

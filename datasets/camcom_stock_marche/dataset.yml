@@ -43,9 +43,16 @@ mart:
   tables:
     - name: "mart_comune_ateco"
       sql: "sql/mart_comune_ateco.sql"
-  required_tables: ["mart_comune_ateco"]
+    - name: "mart_serie_comune"
+      sql: "sql/mart_serie_comune.sql"
+  required_tables:
+    - "mart_comune_ateco"
+    - "mart_serie_comune"
   validate:
     table_rules:
       mart_comune_ateco:
         required_columns: [territorio, ateco, data, imprese]
+        min_rows: 100
+      mart_serie_comune:
+        required_columns: [data, territorio, imprese]
         min_rows: 100
