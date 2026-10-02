@@ -8,6 +8,22 @@ Sistema di intelligence sulla demografia d'impresa italiana: raccoglie dati dal 
 - **Periodo:** Aprile 2025 – Agosto 2026 (mensile)
 - **Granolarità:** Province italiane (2 cifre ATECO) + Comuni Marche (6 cifre ATECO)
 - **Fonte:** [opendata.marche.camcom.it](https://opendata.marche.camcom.it) — CC-BY 4.0
+- **Dashboard:** [dcl-imprese.streamlit.app](https://dcl-imprese.streamlit.app/)
+
+## Dashboard
+
+App Streamlit pubblica con Panoramica, Settori, Territorio, Marche e Query SQL.
+Legge i mart su GCS (`gs://dataciviclab-mart|clean/imprese-italia/`) via
+[lab-connectors](https://github.com/dataciviclab/lab-connectors).
+
+```bash
+cd dashboard
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Sviluppo locale: se `out/data/` è presente, i loader usano i parquet locali;
+altrimenti cadono su GCS.
 
 ## Cosa risponde
 
@@ -45,35 +61,31 @@ Codelist etichette ATECO: `compose/demografia-imprese/codelists/ateco_2.csv` (su
 
 ## Come accedere
 
-### DuckDB (consigliato)
-```sql
--- Top comuni Marche per numero imprese
-SELECT territorio, SUM(imprese) AS totale
-FROM read_parquet('out/data/mart/camcom_stock_marche/2026/mart_comune_ateco.parquet')
-WHERE ateco != 'TOTAL'
-GROUP BY territorio ORDER BY totale DESC LIMIT 10;
+### Dashboard (più rapido)
 
--- Bilancio demografico per settore (Italia)
-WITH stock AS (
-    SELECT ateco, imprese AS stock FROM read_parquet('out/data/mart/camcom_stock_italia/2026/mart_provincia_ateco.parquet')
-    WHERE territorio = 'ITALIA' AND ateco != 'TOTAL'
-),
-flussi AS (
-    SELECT i.ateco, i.nuove_imprese AS iscrizioni, c.cessazioni
-    FROM read_parquet('out/data/mart/camcom_iscrizioni/2026/mart_iscrizioni_provincia.parquet') i
-    JOIN read_parquet('out/data/mart/camcom_cancellazioni/2026/mart_cancellazioni_provincia.parquet') c
-    ON i.ateco = c.ateco
-    WHERE i.territorio = 'ITALIA' AND i.ateco != 'TOTAL'
-)
-SELECT s.ateco, s.stock, f.iscrizioni, f.cessazioni,
-       f.iscrizioni - f.cessazioni AS netto
-FROM stock s JOIN flussi f ON s.ateco = f.ateco ORDER BY netto DESC;
+[dcl-imprese.streamlit.app](https://dcl-imprese.streamlit.app/) — KPI, trend, settori, territorio, Marche.
+
+### DuckDB / GCS
+
+```sql
+-- Top comuni Marche (mart)
+SELECT comune, SUM(imprese) AS totale
+FROM read_parquet('gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_6cifre_comune.parquet')
+GROUP BY comune ORDER BY totale DESC LIMIT 10;
+
+-- Bilancio demografico Italia per ATECO (compose)
+SELECT ateco, stock, iscrizioni, cessazioni, netto
+FROM read_parquet('gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_bilancio_mensile.parquet')
+WHERE data = (SELECT MAX(data) FROM read_parquet('gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_bilancio_mensile.parquet'))
+ORDER BY netto DESC;
 ```
+
+In locale i path sono `out/data/mart/...` dopo `make run-all`.
 
 ### Makefile
 ```bash
-make check    # valida tutti i dataset.yml
-make run-all  # esegui pipeline completa
+make check    # valida dataset.yml + compose
+make run-all  # pipeline completa (datasets + compose)
 make clean    # pulisci output
 ```
 
@@ -89,6 +101,9 @@ make clean    # pulisci output
 
 ```
 imprese-italia/
+├── compose/
+│   └── demografia-imprese/   # bilancio, composizione, RCA, codici anomali
+├── dashboard/                # Streamlit → dcl-imprese.streamlit.app
 ├── datasets/
 │   ├── camcom_stock_italia/
 │   ├── camcom_stock_marche/
@@ -100,7 +115,7 @@ imprese-italia/
 ├── Makefile
 ├── pyproject.toml
 ├── README.md
-└── .github/workflows/ci.yml
+└── .github/workflows/
 ```
 
 ## Fonte e licenza
