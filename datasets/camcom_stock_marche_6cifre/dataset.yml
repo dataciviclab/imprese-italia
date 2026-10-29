@@ -18,7 +18,7 @@ raw:
       type: "http_file"
       args:
         # URL snapshot: aggiornare la data quando cambia il trimestre.
-        url: "https://opendata.marche.camcom.it/data/2026-06-30-Stock-Imprese-Attive-Marche.csv"
+        url: "https://opendata.marche.camcom.it/data/2026-09-30-Stock-Imprese-Attive-Marche.csv"
         filename: "raw_input.csv"
       primary: true
 
