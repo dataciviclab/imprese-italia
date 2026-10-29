@@ -15,10 +15,9 @@ raw:
   output_policy: overwrite
   sources:
     - name: "download"
-      type: "script"
+      type: "http_file"
       args:
-        command: "python3 camcom_download.py raw_input.csv"
-        output: "raw_input.csv"
+        url: "https://opendata.marche.camcom.it/data/Variazione-Tendenziale-Stock-Imprese-Attive-Italia.csv"
         filename: "raw_input.csv"
       primary: true
 
@@ -27,7 +26,7 @@ clean:
   read:
     source: auto
     mode: latest
-    delim: ","
+    delim: ";"
     encoding: utf-8
     header: true
   required_columns:
@@ -37,7 +36,9 @@ clean:
     - variazione_pct
   validate:
     min_rows: 100
-    not_null: [territorio, ateco, data]
+    not_null: [territorio, ateco, data, variazione_pct]
+    promotion:
+      warn_removed_columns: false
 
 mart:
   tables:

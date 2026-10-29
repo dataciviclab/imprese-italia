@@ -1,6 +1,5 @@
 # Imprese Italia — Makefile
 TOOLKIT = toolkit
-export TOOLKIT_ALLOW_SCRIPT_SOURCE = 1
 
 DATASETS := $(shell find datasets -name dataset.yml 2>/dev/null | sort)
 COMPOSES := $(shell find compose -name dataset.yml 2>/dev/null | sort)
