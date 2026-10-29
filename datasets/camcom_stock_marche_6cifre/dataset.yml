@@ -15,10 +15,10 @@ raw:
   output_policy: overwrite
   sources:
     - name: "download"
-      type: "script"
+      type: "http_file"
       args:
-        command: "python3 camcom_download.py raw_input.csv"
-        output: "raw_input.csv"
+        # URL snapshot: aggiornare la data quando cambia il trimestre.
+        url: "https://opendata.marche.camcom.it/data/2026-06-30-Stock-Imprese-Attive-Marche.csv"
         filename: "raw_input.csv"
       primary: true
 

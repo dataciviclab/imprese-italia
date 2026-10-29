@@ -27,8 +27,7 @@ duckdb out/data/mart/camcom_stock_italia/2026/mart_provincia_ateco.parquet
 
 Ogni dataset segue il pattern `raw → clean → mart`:
 
-- **`dataset.yml`** — contratto della pipeline
-- **`camcom_download.py`** — script di download
+- **`dataset.yml`** — contratto della pipeline e sorgente `http_file`
 - **`sql/clean.sql`** — pulizia (legge solo da `raw_input`)
 - **`sql/mart_*.sql`** — aggregazioni (leggono solo da `clean_input`)
 
