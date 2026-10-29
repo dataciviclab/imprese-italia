@@ -36,7 +36,7 @@ clean:
     - imprese
   validate:
     min_rows: 100
-    not_null: [territorio, ateco, data]
+    not_null: [territorio, ateco, data, imprese]
     promotion:
       warn_removed_columns: false
 
