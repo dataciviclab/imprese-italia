@@ -1,19 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repo": "imprese-italia",
   "source_repo": "dataciviclab/imprese-italia",
-  "updated_at": "2026-11-01",
+  "updated_at": "2026-11-25",
+  "gcs": {
+    "clean": "year",
+    "prefix": "imprese-italia/"
+  },
   "datasets": [
     {
       "slug": "camcom_cancellazioni",
       "name": "Camcom Cancellazioni",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2025,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -23,54 +21,50 @@
         "cessazioni"
       ],
       "category": "economia",
+      "period": {
+        "start": 2025,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 57456
+      },
       "columns": [
         {
           "name": "territorio",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "ateco",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "ateco_code"
         },
         {
           "name": "data",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "cessazioni",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_cancellazioni/2026/camcom_cancellazioni_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_cancellazioni__mart_cancellazioni_provincia",
         "camcom_cancellazioni__mart_serie_italia_ateco"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:39.069695+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_iscrizioni",
       "name": "Camcom Iscrizioni",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2025,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -80,54 +74,50 @@
         "nuove-imprese"
       ],
       "category": "economia",
+      "period": {
+        "start": 2025,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 57456
+      },
       "columns": [
         {
           "name": "territorio",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "ateco",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "ateco_code"
         },
         {
           "name": "data",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "nuove_imprese",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_iscrizioni/2026/camcom_iscrizioni_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_iscrizioni__mart_iscrizioni_provincia",
         "camcom_iscrizioni__mart_serie_italia_ateco"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:41.999475+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_stock_italia",
       "name": "Camcom Stock Italia",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2025,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -136,55 +126,51 @@
         "camcom"
       ],
       "category": "economia",
+      "period": {
+        "start": 2025,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 57456
+      },
       "columns": [
         {
           "name": "territorio",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "ateco",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "ateco_code"
         },
         {
           "name": "data",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "imprese",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_italia/2026/camcom_stock_italia_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_stock_italia__mart_provincia_ateco",
         "camcom_stock_italia__mart_serie_italia_ateco",
         "camcom_stock_italia__mart_serie_territorio"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:45.568698+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_stock_italia_6cifre",
       "name": "Camcom Stock Italia 6Cifre",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -194,74 +180,67 @@
         "micro"
       ],
       "category": "economia",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 113206
+      },
       "columns": [
         {
           "name": "regione",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "region_code"
         },
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "settore",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "divisione",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "classe",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "sottocategoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "imprese",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_italia_6cifre/2026/camcom_stock_italia_6cifre_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_stock_italia_6cifre__mart_6cifre_regione",
         "camcom_stock_italia_6cifre__mart_6cifre_provincia",
         "camcom_stock_italia_6cifre__mart_gerarchia"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:50.164046+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_stock_marche",
       "name": "Camcom Stock Marche",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2025,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -272,54 +251,50 @@
         "comunale"
       ],
       "category": "economia",
+      "period": {
+        "start": 2025,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 103512
+      },
       "columns": [
         {
           "name": "territorio",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "ateco",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "ateco_code"
         },
         {
           "name": "data",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "imprese",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_marche/2026/camcom_stock_marche_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_stock_marche__mart_comune_ateco",
         "camcom_stock_marche__mart_serie_comune"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:54.239564+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_stock_marche_6cifre",
       "name": "Camcom Stock Marche 6Cifre",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -331,74 +306,67 @@
         "comunale"
       ],
       "category": "economia",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 34172
+      },
       "columns": [
         {
           "name": "provincia",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "province_code"
         },
         {
           "name": "comune",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "municipality_name"
         },
         {
           "name": "settore",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "divisione",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "classe",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "sottocategoria",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "imprese",
           "type": "BIGINT",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_stock_marche_6cifre/2026/camcom_stock_marche_6cifre_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_stock_marche_6cifre__mart_6cifre_provincia",
         "camcom_stock_marche_6cifre__mart_6cifre_comune",
         "camcom_stock_marche_6cifre__mart_gerarchia"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:28:57.855452+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "camcom_variazione",
       "name": "Camcom Variazione",
-      "description": "",
-      "source": "",
       "source_id": "camcom-marche",
-      "period": {
-        "start": 2025,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -408,54 +376,51 @@
         "variazione-yoy"
       ],
       "category": "economia",
+      "period": {
+        "start": 2025,
+        "end": 2026
+      },
+      "partitions": {
+        "2026": 21007
+      },
       "columns": [
         {
           "name": "territorio",
           "type": "VARCHAR",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "ateco",
           "type": "VARCHAR",
           "role": "dimension",
-          "description": "",
           "semantic_type": "ateco_code"
         },
         {
           "name": "data",
           "type": "DATE",
-          "role": "dimension",
-          "description": ""
+          "role": "dimension"
         },
         {
           "name": "variazione_pct",
           "type": "DOUBLE",
-          "role": "metric",
-          "description": ""
+          "role": "metric"
         }
       ],
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-clean/imprese-italia/camcom_variazione/2026/camcom_variazione_2026_clean.parquet",
-        "multi_file": false
-      },
-      "stage": "incubating",
       "mart_refs": [
         "camcom_variazione__mart_variazione_provincia",
         "camcom_variazione__mart_serie_italia_ateco"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:29:01.179037+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     },
     {
       "slug": "demografia_imprese",
       "name": "Demografia Imprese",
       "description": "Demografia d'impresa: bilancio mensile, composizione settoriale e specializzazione Marche vs Italia",
-      "source": "",
       "source_id": "dataciviclab_composite",
-      "period": {
-        "start": 2026,
-        "end": 2026
-      },
       "tags": [
         "imprese",
         "economia",
@@ -466,13 +431,21 @@
         "specializzazione"
       ],
       "category": "economia",
-      "stage": "incubating",
+      "period": {
+        "start": 2026,
+        "end": 2026
+      },
       "mart_refs": [
         "demografia_imprese__mart_bilancio_mensile",
         "demografia_imprese__mart_composizione_ateco",
         "demografia_imprese__mart_specializzazione",
         "demografia_imprese__mart_codici_anomali"
-      ]
+      ],
+      "last_run": {
+        "at": "2026-11-25T08:29:02.392238+00:00",
+        "year": 2026,
+        "status": "SUCCESS"
+      }
     }
   ],
   "marts": [
@@ -480,551 +453,150 @@
       "slug": "camcom_cancellazioni__mart_cancellazioni_provincia",
       "dataset": "camcom_cancellazioni",
       "table": "mart_cancellazioni_provincia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_cancellazioni/2026/mart_cancellazioni_provincia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_cancellazioni__mart_serie_italia_ateco",
       "dataset": "camcom_cancellazioni",
       "table": "mart_serie_italia_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_cancellazioni/2026/mart_serie_italia_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_iscrizioni__mart_iscrizioni_provincia",
       "dataset": "camcom_iscrizioni",
       "table": "mart_iscrizioni_provincia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_iscrizioni/2026/mart_iscrizioni_provincia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_iscrizioni__mart_serie_italia_ateco",
       "dataset": "camcom_iscrizioni",
       "table": "mart_serie_italia_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_iscrizioni/2026/mart_serie_italia_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia_6cifre__mart_6cifre_provincia",
       "dataset": "camcom_stock_italia_6cifre",
       "table": "mart_6cifre_provincia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia_6cifre/2026/mart_6cifre_provincia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia_6cifre__mart_6cifre_regione",
       "dataset": "camcom_stock_italia_6cifre",
       "table": "mart_6cifre_regione",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia_6cifre/2026/mart_6cifre_regione.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia_6cifre__mart_gerarchia",
       "dataset": "camcom_stock_italia_6cifre",
       "table": "mart_gerarchia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia_6cifre/2026/mart_gerarchia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia__mart_provincia_ateco",
       "dataset": "camcom_stock_italia",
       "table": "mart_provincia_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia/2026/mart_provincia_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia__mart_serie_italia_ateco",
       "dataset": "camcom_stock_italia",
       "table": "mart_serie_italia_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia/2026/mart_serie_italia_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_italia__mart_serie_territorio",
       "dataset": "camcom_stock_italia",
       "table": "mart_serie_territorio",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_italia/2026/mart_serie_territorio.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_marche_6cifre__mart_6cifre_comune",
       "dataset": "camcom_stock_marche_6cifre",
       "table": "mart_6cifre_comune",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_6cifre_comune.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_marche_6cifre__mart_6cifre_provincia",
       "dataset": "camcom_stock_marche_6cifre",
       "table": "mart_6cifre_provincia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_6cifre_provincia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_marche_6cifre__mart_gerarchia",
       "dataset": "camcom_stock_marche_6cifre",
       "table": "mart_gerarchia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche_6cifre/2026/mart_gerarchia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_marche__mart_comune_ateco",
       "dataset": "camcom_stock_marche",
       "table": "mart_comune_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche/2026/mart_comune_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_stock_marche__mart_serie_comune",
       "dataset": "camcom_stock_marche",
       "table": "mart_serie_comune",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_stock_marche/2026/mart_serie_comune.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_variazione__mart_serie_italia_ateco",
       "dataset": "camcom_variazione",
       "table": "mart_serie_italia_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_variazione/2026/mart_serie_italia_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "camcom_variazione__mart_variazione_provincia",
       "dataset": "camcom_variazione",
       "table": "mart_variazione_provincia",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/camcom_variazione/2026/mart_variazione_provincia.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "demografia_imprese__mart_bilancio_mensile",
       "dataset": "demografia_imprese",
       "table": "mart_bilancio_mensile",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_bilancio_mensile.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "demografia_imprese__mart_codici_anomali",
       "dataset": "demografia_imprese",
       "table": "mart_codici_anomali",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_codici_anomali.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "demografia_imprese__mart_composizione_ateco",
       "dataset": "demografia_imprese",
       "table": "mart_composizione_ateco",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_composizione_ateco.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     },
     {
       "slug": "demografia_imprese__mart_specializzazione",
       "dataset": "demografia_imprese",
       "table": "mart_specializzazione",
-      "location": {
-        "type": "gcs",
-        "path": "gs://dataciviclab-mart/imprese-italia/demografia_imprese/2026/mart_specializzazione.parquet",
-        "multi_file": false
-      }
+      "layout": "year",
+      "year": 2026
     }
   ],
-  "signals": [
-    {
-      "id": "compose:demografia_imprese",
-      "source_id": "dataciviclab_composite",
-      "status": "ok",
-      "label": "demografia_imprese",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122559Z_3dd991ea",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "mart": 100
-        },
-        "output_rows": {
-          "mart": 52625
-        },
-        "output_bytes": {
-          "mart": 181316
-        },
-        "started_at": "2026-11-01T12:25:59.238532+00:00",
-        "finished_at": "2026-11-01T12:25:59.378604+00:00",
-        "duration_seconds": 0.14
-      }
-    },
-    {
-      "id": "camcom_cancellazioni",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_cancellazioni",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122537Z_5976f407",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 3024,
-          "clean": 54432,
-          "mart": 3438
-        },
-        "output_bytes": {
-          "raw": 168248,
-          "clean": 55031,
-          "mart": 7174
-        },
-        "started_at": "2026-11-01T12:25:37.827325+00:00",
-        "finished_at": "2026-11-01T12:25:39.139475+00:00",
-        "duration_seconds": 1.312
-      }
-    },
-    {
-      "id": "camcom_iscrizioni",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_iscrizioni",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122540Z_f0fc616a",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 3024,
-          "clean": 54432,
-          "mart": 3438
-        },
-        "output_bytes": {
-          "raw": 165365,
-          "clean": 51482,
-          "mart": 7031
-        },
-        "started_at": "2026-11-01T12:25:40.999398+00:00",
-        "finished_at": "2026-11-01T12:25:42.055722+00:00",
-        "duration_seconds": 1.056
-      }
-    },
-    {
-      "id": "camcom_stock_italia",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_stock_italia",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122543Z_a6a97bc6",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 3024,
-          "clean": 54432,
-          "mart": 5706
-        },
-        "output_bytes": {
-          "raw": 265615,
-          "clean": 75350,
-          "mart": 18750
-        },
-        "started_at": "2026-11-01T12:25:43.541184+00:00",
-        "finished_at": "2026-11-01T12:25:44.884790+00:00",
-        "duration_seconds": 1.344
-      }
-    },
-    {
-      "id": "camcom_stock_italia_6cifre",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_stock_italia_6cifre",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122547Z_f0bea169",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 113206,
-          "clean": 113206,
-          "mart": 115911
-        },
-        "output_bytes": {
-          "raw": 4322129,
-          "clean": 276076,
-          "mart": 285605
-        },
-        "started_at": "2026-11-01T12:25:47.310142+00:00",
-        "finished_at": "2026-11-01T12:25:49.337756+00:00",
-        "duration_seconds": 2.028
-      }
-    },
-    {
-      "id": "camcom_stock_marche",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_stock_marche",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122551Z_1113ef04",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 5448,
-          "clean": 98064,
-          "mart": 9534
-        },
-        "output_bytes": {
-          "raw": 359713,
-          "clean": 51236,
-          "mart": 18061
-        },
-        "started_at": "2026-11-01T12:25:51.147358+00:00",
-        "finished_at": "2026-11-01T12:25:52.547545+00:00",
-        "duration_seconds": 1.4
-      }
-    },
-    {
-      "id": "camcom_stock_marche_6cifre",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_stock_marche_6cifre",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122554Z_1cb0370a",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 34172,
-          "clean": 34172,
-          "mart": 37670
-        },
-        "output_bytes": {
-          "raw": 1646446,
-          "clean": 118031,
-          "mart": 128700
-        },
-        "started_at": "2026-11-01T12:25:54.851124+00:00",
-        "finished_at": "2026-11-01T12:25:56.389960+00:00",
-        "duration_seconds": 1.539
-      }
-    },
-    {
-      "id": "camcom_variazione",
-      "source_id": "camcom-marche",
-      "status": "ok",
-      "label": "camcom_variazione",
-      "detail": "anno 2026 — mart: si",
-      "action": "",
-      "run": {
-        "run_id": "20261101T122557Z_bf38586d",
-        "year": 2026,
-        "status": "SUCCESS",
-        "quality_score": {
-          "raw": 100,
-          "clean": 100,
-          "mart": 100
-        },
-        "output_rows": {
-          "raw": 3024,
-          "clean": 18217,
-          "mart": 2928
-        },
-        "output_bytes": {
-          "raw": 174253,
-          "clean": 40925,
-          "mart": 11294
-        },
-        "started_at": "2026-11-01T12:25:57.849134+00:00",
-        "finished_at": "2026-11-01T12:25:59.138313+00:00",
-        "duration_seconds": 1.289
-      }
-    }
-  ],
-  "codelists": [],
-  "entities": {
-    "entities": {
-      "Attività economica": {
-        "entity": "Attività economica",
-        "label": "Attività economica",
-        "datasets": [
-          {
-            "slug": "camcom_cancellazioni",
-            "name": "Camcom Cancellazioni",
-            "column": "ateco",
-            "semantic_type": "ateco_code"
-          },
-          {
-            "slug": "camcom_iscrizioni",
-            "name": "Camcom Iscrizioni",
-            "column": "ateco",
-            "semantic_type": "ateco_code"
-          },
-          {
-            "slug": "camcom_stock_italia",
-            "name": "Camcom Stock Italia",
-            "column": "ateco",
-            "semantic_type": "ateco_code"
-          },
-          {
-            "slug": "camcom_stock_marche",
-            "name": "Camcom Stock Marche",
-            "column": "ateco",
-            "semantic_type": "ateco_code"
-          },
-          {
-            "slug": "camcom_variazione",
-            "name": "Camcom Variazione",
-            "column": "ateco",
-            "semantic_type": "ateco_code"
-          }
-        ],
-        "types": {
-          "ateco_code": 5
-        }
-      },
-      "Comune": {
-        "entity": "Comune",
-        "label": "Comune (ISTAT)",
-        "datasets": [
-          {
-            "slug": "camcom_stock_marche_6cifre",
-            "name": "Camcom Stock Marche 6Cifre",
-            "column": "comune",
-            "semantic_type": "municipality_name"
-          }
-        ],
-        "types": {
-          "municipality_name": 1
-        }
-      },
-      "Provincia": {
-        "entity": "Provincia",
-        "label": "Provincia",
-        "datasets": [
-          {
-            "slug": "camcom_stock_italia_6cifre",
-            "name": "Camcom Stock Italia 6Cifre",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          },
-          {
-            "slug": "camcom_stock_marche_6cifre",
-            "name": "Camcom Stock Marche 6Cifre",
-            "column": "provincia",
-            "semantic_type": "province_code"
-          }
-        ],
-        "types": {
-          "province_code": 2
-        }
-      },
-      "Regione": {
-        "entity": "Regione",
-        "label": "Regione",
-        "datasets": [
-          {
-            "slug": "camcom_stock_italia_6cifre",
-            "name": "Camcom Stock Italia 6Cifre",
-            "column": "regione",
-            "semantic_type": "region_code"
-          }
-        ],
-        "types": {
-          "region_code": 1
-        }
-      }
-    },
-    "bridges": []
-  }
+  "checks": [],
+  "codelists": []
 }
